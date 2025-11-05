@@ -10,13 +10,8 @@ import {
   faRoute,
   faUserCheck,
   faLightbulb,
-  faGlobe,
-  faCalendarCheck,
   faEnvelope,
-  faSmile,
-  faMagic,
-  faShieldAlt,
-  faClock
+  faSmile
 } from '@fortawesome/free-solid-svg-icons';
 
 const AIEnhancements = () => {
@@ -34,7 +29,7 @@ const AIEnhancements = () => {
         'Call transcription & summarization'
       ],
       roi: '+60% call handling capacity',
-      cost: 'CHF 15K setup + CHF 2K/month'
+      cost: 'CHF 5K setup + CHF 600/month'
     },
     {
       title: 'Lead Qualifier AI',
@@ -49,7 +44,7 @@ const AIEnhancements = () => {
         'Smart lead distribution'
       ],
       roi: '+45% sales team efficiency',
-      cost: 'CHF 12K setup + CHF 1.5K/month'
+      cost: 'CHF 3K setup + CHF 400/month'
     },
     {
       title: 'AI Chatbot Assistant',
@@ -64,7 +59,7 @@ const AIEnhancements = () => {
         'Seamless human handoff'
       ],
       roi: '+70% first-response time',
-      cost: 'CHF 10K setup + CHF 1K/month'
+      cost: 'CHF 2.5K setup + CHF 300/month'
     },
     {
       title: 'Predictive Analytics',
@@ -79,7 +74,7 @@ const AIEnhancements = () => {
         'Market trend identification'
       ],
       roi: '+35% retention rate',
-      cost: 'CHF 18K setup + CHF 2.5K/month'
+      cost: 'CHF 4K setup + CHF 500/month'
     },
     {
       title: 'Sentiment Analysis',
@@ -94,7 +89,7 @@ const AIEnhancements = () => {
         'Alert for at-risk clients'
       ],
       roi: '+50% issue resolution speed',
-      cost: 'CHF 8K setup + CHF 1K/month'
+      cost: 'CHF 2K setup + CHF 250/month'
     },
     {
       title: 'Document Intelligence',
@@ -109,7 +104,7 @@ const AIEnhancements = () => {
         'Intelligent search'
       ],
       roi: '+80% document processing speed',
-      cost: 'CHF 14K setup + CHF 1.8K/month'
+      cost: 'CHF 3.5K setup + CHF 450/month'
     },
     {
       title: 'Smart Routing Engine',
@@ -124,7 +119,7 @@ const AIEnhancements = () => {
         'Time-zone optimization'
       ],
       roi: '+40% agent productivity',
-      cost: 'CHF 9K setup + CHF 1.2K/month'
+      cost: 'CHF 2K setup + CHF 200/month'
     },
     {
       title: 'AI Email Assistant',
@@ -139,98 +134,36 @@ const AIEnhancements = () => {
         'Tone adjustment'
       ],
       roi: '+55% email response time',
-      cost: 'CHF 7K setup + CHF 900/month'
+      cost: 'CHF 1.5K setup + CHF 200/month'
     }
   ];
 
   const implementationPhases = [
     {
       phase: 'Quick Wins',
-      duration: '1-2 months',
+      duration: '2-3 weeks',
       icon: faLightbulb,
       color: 'text-yellow-400',
       features: ['AI Chatbot', 'Email Assistant', 'Smart Routing'],
-      investment: 'CHF 26K + CHF 3.1K/month'
+      investment: 'CHF 6K + CHF 700/month'
     },
     {
       phase: 'Core AI',
-      duration: '3-4 months',
+      duration: '3-4 weeks',
       icon: faBrain,
       color: 'text-purple-400',
       features: ['Lead Qualifier', 'Sentiment Analysis', 'Document Intelligence'],
-      investment: 'CHF 34K + CHF 4.3K/month'
+      investment: 'CHF 8.5K + CHF 1.1K/month'
     },
     {
       phase: 'Advanced AI',
-      duration: '4-6 months',
+      duration: '4-6 weeks',
       icon: faRobot,
       color: 'text-blue-400',
       features: ['AI Voice Agents', 'Predictive Analytics'],
-      investment: 'CHF 33K + CHF 4.5K/month'
+      investment: 'CHF 9K + CHF 1.1K/month'
     }
   ];
-
-  const benefits = [
-    { 
-      metric: 'Response Time', 
-      improvement: '75%', 
-      description: 'Faster customer responses with AI automation',
-      icon: faClock
-    },
-    { 
-      metric: 'Lead Conversion', 
-      improvement: '45%', 
-      description: 'Higher conversion with intelligent lead scoring',
-      icon: faChartLine
-    },
-    { 
-      metric: 'Agent Productivity', 
-      improvement: '60%', 
-      description: 'More efficient agents with AI assistance',
-      icon: faUserCheck
-    },
-    { 
-      metric: 'Customer Satisfaction', 
-      improvement: '40%', 
-      description: 'Improved CSAT with 24/7 AI support',
-      icon: faSmile
-    }
-  ];
-
-  const considerations = [
-    {
-      title: 'Data Privacy & Compliance',
-      description: 'Ensure all AI systems comply with Swiss data protection laws and GDPR',
-      icon: faShieldAlt,
-      importance: 'Critical'
-    },
-    {
-      title: 'Training & Adoption',
-      description: 'Comprehensive training program for staff to work alongside AI tools',
-      icon: faUserCheck,
-      importance: 'High'
-    },
-    {
-      title: 'AI Model Training',
-      description: 'Initial setup requires quality data for accurate predictions',
-      icon: faBrain,
-      importance: 'High'
-    },
-    {
-      title: 'Integration Complexity',
-      description: 'AI features integrate with existing CRM modules and workflows',
-      icon: faRoute,
-      importance: 'Medium'
-    }
-  ];
-
-  const getImportanceColor = (importance) => {
-    switch(importance) {
-      case 'Critical': return 'bg-red-500';
-      case 'High': return 'bg-orange-500';
-      default: return 'bg-yellow-500';
-    }
-  };
 
   return (
     <div className="max-w-7xl mx-auto">
@@ -245,10 +178,10 @@ const AIEnhancements = () => {
           What's <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Next?</span>
         </h2>
         <p className="text-2xl text-emerald-100/80 max-w-4xl mx-auto mb-4">
-          AI-Powered Features to Transform Your CRM
+          AI Features I Can Add to Your CRM
         </p>
         <p className="text-lg text-emerald-100/60 max-w-3xl mx-auto">
-          Take your CRM to the next level with intelligent automation and machine learning capabilities
+          Once your core CRM is running smoothly, we can supercharge it with smart AI features that work for you around the clock—handling calls, qualifying leads, and predicting what your customers need before they even ask
         </p>
       </motion.div>
 
@@ -335,122 +268,9 @@ const AIEnhancements = () => {
         </div>
 
         <div className="mt-8 text-center">
-          <div className="text-emerald-100/70 text-sm">Total AI Enhancement Investment</div>
-          <div className="text-emerald-300 font-bold text-3xl mt-2">CHF 93K setup + CHF 11.9K/month</div>
+          <div className="text-emerald-100/70 text-sm">Total AI Enhancement Investment (All Features)</div>
+          <div className="text-emerald-300 font-bold text-3xl mt-2">CHF 23.5K setup + CHF 2.9K/month</div>
           <div className="text-emerald-100/60 text-xs mt-2">Can be implemented gradually based on priorities and budget</div>
-        </div>
-      </motion.div>
-
-      {/* Expected Benefits */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 1.8 }}
-        className="grid md:grid-cols-4 gap-6 mb-12"
-      >
-        {benefits.map((benefit, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 2 + index * 0.1 }}
-            whileHover={{ scale: 1.05 }}
-            className="bg-gradient-to-br from-purple-900/40 to-pink-900/40 backdrop-blur-lg rounded-2xl p-6 border border-purple-700/30 text-center"
-          >
-            <div className="text-purple-400 text-4xl mb-3">
-              <FontAwesomeIcon icon={benefit.icon} />
-            </div>
-            <div className="text-4xl font-bold text-purple-200 mb-2">+{benefit.improvement}</div>
-            <div className="text-purple-100 font-semibold mb-2">{benefit.metric}</div>
-            <div className="text-purple-200/70 text-sm">{benefit.description}</div>
-          </motion.div>
-        ))}
-      </motion.div>
-
-      {/* Important Considerations */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 2.4 }}
-        className="bg-emerald-900/30 backdrop-blur-lg rounded-3xl p-8 border border-emerald-700/30 mb-12"
-      >
-        <h3 className="text-3xl font-bold text-emerald-50 mb-6 text-center">Important Considerations</h3>
-        
-        <div className="grid md:grid-cols-2 gap-4">
-          {considerations.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 2.6 + index * 0.1 }}
-              className="bg-emerald-950/50 rounded-2xl p-6 border border-emerald-700/30"
-            >
-              <div className="flex items-start justify-between mb-3">
-                <div className="text-emerald-400 text-3xl">
-                  <FontAwesomeIcon icon={item.icon} />
-                </div>
-                <span className={`${getImportanceColor(item.importance)} text-white text-xs px-3 py-1 rounded-full font-semibold`}>
-                  {item.importance}
-                </span>
-              </div>
-              <h4 className="text-lg font-bold text-emerald-50 mb-2">{item.title}</h4>
-              <p className="text-emerald-100/70 text-sm">{item.description}</p>
-            </motion.div>
-          ))}
-        </div>
-      </motion.div>
-
-      {/* Why Implement AI Now */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 2.8 }}
-        className="bg-gradient-to-r from-purple-600/20 to-pink-600/20 backdrop-blur-lg rounded-3xl p-10 border border-purple-500/30 text-center"
-      >
-        <div className="text-purple-400 text-6xl mb-6">
-          <FontAwesomeIcon icon={faMagic} />
-        </div>
-        <h3 className="text-4xl font-bold text-emerald-50 mb-6">Why Implement AI Now?</h3>
-        
-        <div className="grid md:grid-cols-3 gap-8 mt-8 text-left">
-          <div>
-            <div className="text-purple-400 text-3xl mb-3">
-              <FontAwesomeIcon icon={faGlobe} />
-            </div>
-            <h4 className="text-xl font-bold text-emerald-50 mb-2">Competitive Advantage</h4>
-            <p className="text-emerald-100/70">
-              Early adopters of AI in insurance gain significant market advantage with superior customer experience and operational efficiency.
-            </p>
-          </div>
-          
-          <div>
-            <div className="text-purple-400 text-3xl mb-3">
-              <FontAwesomeIcon icon={faChartLine} />
-            </div>
-            <h4 className="text-xl font-bold text-emerald-50 mb-2">Proven ROI</h4>
-            <p className="text-emerald-100/70">
-              AI implementations in CRM systems show 3-5x ROI within the first year through automation and improved conversion rates.
-            </p>
-          </div>
-          
-          <div>
-            <div className="text-purple-400 text-3xl mb-3">
-              <FontAwesomeIcon icon={faCalendarCheck} />
-            </div>
-            <h4 className="text-xl font-bold text-emerald-50 mb-2">Future-Ready</h4>
-            <p className="text-emerald-100/70">
-              Building AI capabilities now positions your organization for rapid adaptation to emerging technologies and market changes.
-            </p>
-          </div>
-        </div>
-
-        <div className="mt-10 pt-8 border-t border-purple-500/30">
-          <p className="text-2xl text-emerald-100/90 font-semibold">
-            Start with Quick Wins, scale based on results
-          </p>
-          <p className="text-emerald-100/60 mt-2">
-            Implement AI features incrementally to manage risk and demonstrate value early
-          </p>
         </div>
       </motion.div>
     </div>

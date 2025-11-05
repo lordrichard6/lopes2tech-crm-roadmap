@@ -93,22 +93,23 @@ const TechStack = () => {
       icon: faMobile,
       color: 'from-purple-500 to-indigo-500',
       primary: {
-        name: 'Ionic + Angular',
-        version: '7+',
-        description: 'Cross-platform mobile framework with Angular',
+        name: 'Progressive Web App (PWA)',
+        version: 'Angular-based',
+        description: 'Installable web app with native-like experience',
         features: [
-          'Single codebase for iOS & Android',
-          'Native device access via Capacitor',
-          'Angular-based for consistency',
-          'Pre-built mobile UI components',
-          'Offline data synchronization',
-          'Push notifications support'
+          'Install on home screen (no app store)',
+          'Works offline with service workers',
+          'Push notifications support',
+          'Responsive mobile-first design',
+          'Instant updates (no app review)',
+          'Cross-platform (iOS, Android, Desktop)'
         ]
       },
       supporting: [
-        { name: 'Capacitor', purpose: 'Native device features' },
-        { name: 'Cordova Plugins', purpose: 'Extended functionality' },
-        { name: 'PWA', purpose: 'Progressive web capabilities' }
+        { name: 'Service Workers', purpose: 'Offline functionality & caching' },
+        { name: 'IndexedDB', purpose: 'Local data storage' },
+        { name: 'Web App Manifest', purpose: 'App installation & branding' },
+        { name: 'Workbox', purpose: 'PWA optimization tools' }
       ]
     }
   ];

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
   faRocket,
@@ -13,14 +14,15 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 const DevelopmentPhases = () => {
+  const [viewMode, setViewMode] = useState('traditional'); // 'traditional' or 'ai-powered'
   const phases = [
     {
       phase: 'Phase 1',
       title: 'Foundation & Core Features',
-      duration: '3 months',
+      duration: viewMode === 'traditional' ? '2 months (8 weeks)' : '2-3 weeks',
       icon: faDatabase,
       color: 'from-emerald-500 to-teal-500',
-      sprints: '6 sprints',
+      sprints: viewMode === 'traditional' ? '4 sprints' : '1-2 sprints',
       objectives: [
         'Database design and architecture',
         'User authentication & RBAC',
@@ -44,10 +46,10 @@ const DevelopmentPhases = () => {
     {
       phase: 'Phase 2',
       title: 'Sales & Lead Management',
-      duration: '3 months',
+      duration: viewMode === 'traditional' ? '2 months (8 weeks)' : '2-3 weeks',
       icon: faChartLine,
       color: 'from-teal-500 to-cyan-500',
-      sprints: '6 sprints',
+      sprints: viewMode === 'traditional' ? '4 sprints' : '1-2 sprints',
       objectives: [
         'Lead capture system integration',
         'Lead scoring and qualification',
@@ -72,10 +74,10 @@ const DevelopmentPhases = () => {
     {
       phase: 'Phase 3',
       title: 'Communication & Relationship',
-      duration: '3 months',
+      duration: viewMode === 'traditional' ? '2 months (8 weeks)' : '2-3 weeks',
       icon: faComments,
       color: 'from-cyan-500 to-blue-500',
-      sprints: '6 sprints',
+      sprints: viewMode === 'traditional' ? '4 sprints' : '1-2 sprints',
       objectives: [
         'Email integration (Gmail, Outlook)',
         'SMS and WhatsApp integration',
@@ -100,10 +102,10 @@ const DevelopmentPhases = () => {
     {
       phase: 'Phase 4',
       title: 'Analytics & Automation',
-      duration: '3 months',
+      duration: viewMode === 'traditional' ? '2 months (8 weeks)' : '2-3 weeks',
       icon: faRocket,
       color: 'from-blue-500 to-indigo-500',
-      sprints: '6 sprints',
+      sprints: viewMode === 'traditional' ? '4 sprints' : '1-2 sprints',
       objectives: [
         'Real-time reporting dashboards',
         'Customer segmentation analytics',
@@ -127,28 +129,28 @@ const DevelopmentPhases = () => {
     },
     {
       phase: 'Phase 5',
-      title: 'Advanced Features & AI',
-      duration: '3 months',
+      title: 'Mobile & Self-Service',
+      duration: viewMode === 'traditional' ? '2 months (8 weeks)' : '2-3 weeks',
       icon: faMobileAlt,
       color: 'from-indigo-500 to-purple-500',
-      sprints: '6 sprints',
+      sprints: viewMode === 'traditional' ? '4 sprints' : '1-2 sprints',
       objectives: [
         'Native mobile apps (iOS/Android)',
         'Offline data access',
-        'AI-powered lead scoring',
-        'Churn prediction models',
-        'Cross-sell recommendations',
-        'Customer self-service portal'
+        'Push notifications',
+        'Mobile-optimized workflows',
+        'Customer self-service portal',
+        'Advanced reporting features'
       ],
       deliverables: [
         'Mobile applications',
-        'AI/ML recommendation engine',
         'Customer portal',
-        'Advanced analytics dashboard'
+        'Advanced analytics dashboard',
+        'Mobile synchronization'
       ],
       success: [
         'Mobile app used by 70% of advisors',
-        'AI recommendations accepted 60%',
+        'Offline access working seamlessly',
         'Self-service reduces support by 40%',
         'Sales efficiency improved by 25%'
       ]
@@ -164,12 +166,53 @@ const DevelopmentPhases = () => {
         transition={{ duration: 0.6 }}
         className="text-center mb-12"
       >
-        <h2 className="text-6xl font-bold text-emerald-50 mb-6 tracking-tight">
-          Development <span className="bg-gradient-to-r from-emerald-300 to-teal-400 bg-clip-text text-transparent">Phases</span>
-        </h2>
-        <p className="text-2xl text-emerald-100/80 max-w-4xl mx-auto mb-8">
-          15-month roadmap with 30 sprints across 5 phases
-        </p>
+        <div className="flex items-center justify-center gap-6 mb-6">
+          <h2 className="text-6xl font-bold text-emerald-50 tracking-tight">
+            Development <span className="bg-gradient-to-r from-emerald-300 to-teal-400 bg-clip-text text-transparent">Phases</span>
+          </h2>
+          
+          {/* Toggle Buttons */}
+          <div className="flex bg-slate-800/50 backdrop-blur-lg rounded-2xl p-2 border border-emerald-700/30">
+            <motion.button
+              onClick={() => setViewMode('traditional')}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
+                viewMode === 'traditional'
+                  ? 'bg-emerald-500 text-white shadow-lg'
+                  : 'text-slate-400 hover:text-emerald-300'
+              }`}
+            >
+              Traditional
+            </motion.button>
+            <motion.button
+              onClick={() => setViewMode('ai-powered')}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
+                viewMode === 'ai-powered'
+                  ? 'bg-emerald-500 text-white shadow-lg'
+                  : 'text-slate-400 hover:text-emerald-300'
+              }`}
+            >
+              AI Powered
+            </motion.button>
+          </div>
+        </div>
+        
+        <motion.p 
+          key={viewMode}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.4 }}
+          className="text-2xl text-emerald-100/80 max-w-4xl mx-auto mb-8"
+        >
+          {viewMode === 'traditional' 
+            ? '10-month roadmap with 20 sprints across 5 phases'
+            : '3-4 month roadmap with 6-8 sprints across 5 phases'
+          }
+        </motion.p>
 
         {/* Timeline Overview */}
         <motion.div
@@ -178,24 +221,66 @@ const DevelopmentPhases = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="flex items-center justify-center gap-4 mb-4"
         >
-          <div className="bg-emerald-900/30 backdrop-blur-lg rounded-xl px-6 py-3 border border-emerald-700/30">
+          <motion.div 
+            key={`months-${viewMode}`}
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.4, type: "spring", stiffness: 200 }}
+            className="bg-emerald-900/30 backdrop-blur-lg rounded-xl px-6 py-3 border border-emerald-700/30"
+          >
             <div className="flex items-center gap-2">
               <FontAwesomeIcon icon={faClock} className="text-emerald-400" />
-              <span className="text-emerald-50 font-semibold">15 Months Total</span>
+              <motion.span 
+                key={`months-text-${viewMode}`}
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3 }}
+                className="text-emerald-50 font-semibold"
+              >
+                {viewMode === 'traditional' ? '10 Months Total' : '3-4 Months Total'}
+              </motion.span>
             </div>
-          </div>
-          <div className="bg-emerald-900/30 backdrop-blur-lg rounded-xl px-6 py-3 border border-emerald-700/30">
+          </motion.div>
+          <motion.div 
+            key={`sprints-${viewMode}`}
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.4, delay: 0.1, type: "spring", stiffness: 200 }}
+            className="bg-emerald-900/30 backdrop-blur-lg rounded-xl px-6 py-3 border border-emerald-700/30"
+          >
             <div className="flex items-center gap-2">
               <FontAwesomeIcon icon={faCode} className="text-emerald-400" />
-              <span className="text-emerald-50 font-semibold">30 Sprints</span>
+              <motion.span 
+                key={`sprints-text-${viewMode}`}
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3, delay: 0.1 }}
+                className="text-emerald-50 font-semibold"
+              >
+                {viewMode === 'traditional' ? '20 Sprints' : '6-8 Sprints'}
+              </motion.span>
             </div>
-          </div>
-          <div className="bg-emerald-900/30 backdrop-blur-lg rounded-xl px-6 py-3 border border-emerald-700/30">
+          </motion.div>
+          <motion.div 
+            key={`team-${viewMode}`}
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.4, delay: 0.2, type: "spring", stiffness: 200 }}
+            className="bg-emerald-900/30 backdrop-blur-lg rounded-xl px-6 py-3 border border-emerald-700/30"
+          >
             <div className="flex items-center gap-2">
               <FontAwesomeIcon icon={faUsers} className="text-emerald-400" />
-              <span className="text-emerald-50 font-semibold">5-7 Team Members</span>
+              <motion.span 
+                key={`team-text-${viewMode}`}
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3, delay: 0.2 }}
+                className="text-emerald-50 font-semibold"
+              >
+                {viewMode === 'traditional' ? '5-7 Team Members' : '1 AI Powered Person'}
+              </motion.span>
             </div>
-          </div>
+          </motion.div>
         </motion.div>
       </motion.div>
 
@@ -224,8 +309,24 @@ const DevelopmentPhases = () => {
                 </div>
                 <div className="text-right">
                   <div className="text-emerald-300 text-sm">Duration</div>
-                  <div className="text-2xl font-bold text-emerald-50">{phase.duration}</div>
-                  <div className="text-emerald-300/70 text-xs">{phase.sprints}</div>
+                  <motion.div 
+                    key={`duration-${index}-${viewMode}`}
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.4, type: "spring", stiffness: 200 }}
+                    className="text-2xl font-bold text-emerald-50"
+                  >
+                    {phase.duration}
+                  </motion.div>
+                  <motion.div 
+                    key={`sprints-${index}-${viewMode}`}
+                    initial={{ opacity: 0, y: 5 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.1 }}
+                    className="text-emerald-300/70 text-xs"
+                  >
+                    {phase.sprints}
+                  </motion.div>
                 </div>
               </div>
 
@@ -311,39 +412,6 @@ const DevelopmentPhases = () => {
           </motion.div>
         ))}
       </div>
-
-      {/* Summary */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 2 }}
-        className="mt-12 bg-gradient-to-r from-emerald-800/30 to-teal-800/30 backdrop-blur-lg rounded-3xl p-8 border border-emerald-600/30 text-center"
-      >
-        <h3 className="text-3xl font-bold text-emerald-50 mb-4">Complete Transformation</h3>
-        <p className="text-xl text-emerald-100/70 max-w-4xl mx-auto mb-6">
-          By the end of Phase 5, you'll have a fully integrated CRM system that transforms operations, 
-          enhances customer experience, and drives business growth through automation and AI-powered insights.
-        </p>
-        
-        <div className="grid md:grid-cols-4 gap-6 mt-8">
-          <div>
-            <div className="text-4xl font-bold text-emerald-300 mb-2">100%</div>
-            <div className="text-emerald-100/70 text-sm">Digital Transformation</div>
-          </div>
-          <div>
-            <div className="text-4xl font-bold text-emerald-300 mb-2">80%</div>
-            <div className="text-emerald-100/70 text-sm">Task Automation</div>
-          </div>
-          <div>
-            <div className="text-4xl font-bold text-emerald-300 mb-2">25%</div>
-            <div className="text-emerald-100/70 text-sm">Efficiency Increase</div>
-          </div>
-          <div>
-            <div className="text-4xl font-bold text-emerald-300 mb-2">ROI</div>
-            <div className="text-emerald-100/70 text-sm">$8.71 per $1 Spent</div>
-          </div>
-        </div>
-      </motion.div>
     </div>
   );
 };

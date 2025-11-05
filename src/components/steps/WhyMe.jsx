@@ -14,7 +14,12 @@ import {
   faHeart,
   faCheckCircle,
   faGlobe,
-  faShieldAlt
+  faShieldAlt,
+  faExternalLinkAlt,
+  faBuilding,
+  faTruck,
+  faHospital,
+  faPlane
 } from '@fortawesome/free-solid-svg-icons';
 
 const WhyMe = () => {
@@ -122,12 +127,6 @@ const WhyMe = () => {
     'Docker', 'AWS', 'Figma', 'Git', 'REST APIs', 'WebSockets',
     'Redis', 'Nginx', 'CI/CD', 'Agile', 'TDD', 'UX/UI Design'
   ];
-
-  const testimonialHighlight = {
-    quote: "The most impressive thing? How fast things get done. What I expected to take months was delivered in weeks, with quality that rivals any agency I've worked with.",
-    author: 'Satisfied Client',
-    project: 'TheraFlow CRM (In Beta)'
-  };
 
   return (
     <div className="max-w-7xl mx-auto">
@@ -276,7 +275,7 @@ const WhyMe = () => {
 
         <div className="grid md:grid-cols-2 gap-6 mb-6">
           <div className="bg-emerald-950/50 rounded-2xl p-6">
-            <h4 className="text-lg font-bold text-emerald-300 mb-3">⚡ Traditional Team (5 developers)</h4>
+            <h4 className="text-lg font-bold text-emerald-300 mb-3">⚡ Traditional Team (3-4 developers)</h4>
             <ul className="space-y-2 text-emerald-100/70 text-sm">
               <li>• Meetings and coordination overhead</li>
               <li>• Code review delays</li>
@@ -286,7 +285,7 @@ const WhyMe = () => {
             </ul>
             <div className="mt-4 pt-4 border-t border-emerald-700/30">
               <div className="text-emerald-100/60 text-xs">Estimated delivery:</div>
-              <div className="text-emerald-50 font-bold text-xl">4-6 months</div>
+              <div className="text-emerald-50 font-bold text-xl">10 months</div>
             </div>
           </div>
 
@@ -344,30 +343,168 @@ const WhyMe = () => {
         </div>
       </motion.div>
 
-      {/* Testimonial / Featured Work */}
+      {/* Featured Work */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 2.6 }}
         className="bg-gradient-to-br from-emerald-900/40 to-teal-900/40 backdrop-blur-lg rounded-3xl p-10 border border-emerald-700/30 shadow-2xl mb-12"
       >
-        <div className="text-center mb-6">
+        <div className="text-center mb-8">
           <div className="text-emerald-400 text-5xl mb-4">
             <FontAwesomeIcon icon={faAward} />
           </div>
-          <h3 className="text-3xl font-bold text-emerald-50 mb-2">Featured Work</h3>
-          <p className="text-emerald-300 font-semibold text-lg mb-4">{testimonialHighlight.project}</p>
+          <h3 className="text-3xl font-bold text-emerald-50 mb-2">Featured Projects</h3>
+          <p className="text-emerald-100/70 text-lg">Real applications built with modern technologies</p>
         </div>
         
-        <div className="max-w-3xl mx-auto">
-          <div className="text-6xl text-emerald-500/20 mb-4">"</div>
-          <p className="text-2xl text-emerald-100/90 italic mb-6 text-center">
-            {testimonialHighlight.quote}
-          </p>
-          <div className="text-right text-emerald-100/70">
-            — {testimonialHighlight.author}
-          </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Finito Pro */}
+          <motion.a
+            href="https://www.finitopro.ch/"
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 2.7 }}
+            whileHover={{ scale: 1.05, y: -5 }}
+            className="bg-emerald-950/50 rounded-2xl p-6 border border-emerald-700/30 hover:border-emerald-500/50 transition-all group"
+          >
+            <div className="text-emerald-400 text-4xl mb-4">
+              <FontAwesomeIcon icon={faBuilding} />
+            </div>
+            <h4 className="text-xl font-bold text-emerald-50 mb-2 group-hover:text-emerald-300 transition-colors">
+              Finito Pro
+            </h4>
+            <p className="text-emerald-100/70 text-sm mb-3">
+              Professional business management platform
+            </p>
+            <div className="text-emerald-400 text-sm flex items-center gap-2">
+              Visit site <FontAwesomeIcon icon={faExternalLinkAlt} className="text-xs" />
+            </div>
+          </motion.a>
+
+          {/* Movline24 */}
+          <motion.a
+            href="https://www.movline24.ch/"
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 2.8 }}
+            whileHover={{ scale: 1.05, y: -5 }}
+            className="bg-emerald-950/50 rounded-2xl p-6 border border-emerald-700/30 hover:border-emerald-500/50 transition-all group"
+          >
+            <div className="text-emerald-400 text-4xl mb-4">
+              <FontAwesomeIcon icon={faTruck} />
+            </div>
+            <h4 className="text-xl font-bold text-emerald-50 mb-2 group-hover:text-emerald-300 transition-colors">
+              Movline24
+            </h4>
+            <p className="text-emerald-100/70 text-sm mb-3">
+              Modern moving and logistics solution
+            </p>
+            <div className="text-emerald-400 text-sm flex items-center gap-2">
+              Visit site <FontAwesomeIcon icon={faExternalLinkAlt} className="text-xs" />
+            </div>
+          </motion.a>
+
+          {/* NOFF */}
+          <motion.a
+            href="https://noff.ch/"
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 2.9 }}
+            whileHover={{ scale: 1.05, y: -5 }}
+            className="bg-emerald-950/50 rounded-2xl p-6 border border-emerald-700/30 hover:border-emerald-500/50 transition-all group"
+          >
+            <div className="text-emerald-400 text-4xl mb-4">
+              <FontAwesomeIcon icon={faClock} />
+            </div>
+            <h4 className="text-xl font-bold text-emerald-50 mb-2 group-hover:text-emerald-300 transition-colors">
+              NOFF
+            </h4>
+            <p className="text-emerald-100/70 text-sm mb-3">
+              Communication & availability management platform
+            </p>
+            <div className="text-emerald-400 text-sm flex items-center gap-2">
+              Visit site <FontAwesomeIcon icon={faExternalLinkAlt} className="text-xs" />
+            </div>
+          </motion.a>
+
+          {/* TheraFlow CRM */}
+          <motion.a
+            href="https://www.theraflow-crm.ch/"
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 3.0 }}
+            whileHover={{ scale: 1.05, y: -5 }}
+            className="bg-emerald-950/50 rounded-2xl p-6 border border-emerald-700/30 hover:border-purple-500/50 transition-all group"
+          >
+            <div className="text-purple-400 text-4xl mb-4">
+              <FontAwesomeIcon icon={faHospital} />
+            </div>
+            <h4 className="text-xl font-bold text-emerald-50 mb-2 group-hover:text-purple-300 transition-colors">
+              TheraFlow CRM
+            </h4>
+            <p className="text-emerald-100/70 text-sm mb-3">
+              Healthcare practice management system
+            </p>
+            <div className="flex items-center justify-between">
+              <span className="text-purple-400 text-xs font-semibold px-2 py-1 bg-purple-500/20 rounded">
+                Under Development
+              </span>
+              <div className="text-purple-400 text-sm flex items-center gap-2">
+                Preview <FontAwesomeIcon icon={faExternalLinkAlt} className="text-xs" />
+              </div>
+            </div>
+          </motion.a>
+
+          {/* Pickwings */}
+          <motion.a
+            href="https://pickwings.ch/en/"
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 3.1 }}
+            whileHover={{ scale: 1.05, y: -5 }}
+            className="bg-emerald-950/50 rounded-2xl p-6 border border-emerald-700/30 hover:border-blue-500/50 transition-all group"
+          >
+            <div className="text-blue-400 text-4xl mb-4">
+              <FontAwesomeIcon icon={faPlane} />
+            </div>
+            <h4 className="text-xl font-bold text-emerald-50 mb-2 group-hover:text-blue-300 transition-colors">
+              Pickwings
+            </h4>
+            <p className="text-emerald-100/70 text-sm mb-3">
+              Travel booking and services platform
+            </p>
+            <div className="flex items-center justify-between">
+              <span className="text-blue-400 text-xs font-semibold px-2 py-1 bg-blue-500/20 rounded">
+                Small Support
+              </span>
+              <div className="text-blue-400 text-sm flex items-center gap-2">
+                Visit site <FontAwesomeIcon icon={faExternalLinkAlt} className="text-xs" />
+              </div>
+            </div>
+          </motion.a>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 3.2 }}
+          className="mt-8 pt-8 border-t border-emerald-700/30 text-center"
+        >
+          <p className="text-emerald-100/70 text-sm">
+            Each project showcases different technologies and solving real business challenges
+          </p>
+        </motion.div>
       </motion.div>
 
       {/* CTA */}

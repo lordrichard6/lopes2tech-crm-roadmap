@@ -20,7 +20,7 @@ const CRMRequirements = () => {
     {
       icon: faLayerGroup,
       title: 'Multi-Location Management',
-      description: 'Coordinate operations and data across 7 Swiss offices',
+      description: 'Coordinate operations and data across multiple offices',
       priority: 'Critical'
     },
     {

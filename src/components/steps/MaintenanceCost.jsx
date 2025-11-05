@@ -12,7 +12,7 @@ import {
   faLightbulb,
   faCalendarAlt
 } from '@fortawesome/free-solid-svg-icons';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
+import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts';
 
 const MaintenanceCost = () => {
   // Simplified infrastructure costs for 20-person company
@@ -21,42 +21,42 @@ const MaintenanceCost = () => {
       category: 'Cloud Hosting',
       icon: faCloudUploadAlt,
       items: [
-        { name: 'AWS/Azure Server', cost: 180, description: 'Application server' },
-        { name: 'CDN & Assets', cost: 50, description: 'Content delivery' },
-        { name: 'Backup Storage', cost: 40, description: 'Daily backups' }
+        { name: 'AWS/Azure Server', cost: 80, description: 'Small app server (2vCPU, 4GB RAM)' },
+        { name: 'CDN & Assets', cost: 15, description: 'Content delivery (Cloudflare/AWS)' },
+        { name: 'Backup Storage', cost: 10, description: 'Daily backups (~50GB)' }
       ],
-      total: 270,
+      total: 105,
       color: '#3b82f6'
     },
     {
       category: 'Database & Storage',
       icon: faDatabase,
       items: [
-        { name: 'PostgreSQL Database', cost: 120, description: 'Managed database' },
-        { name: 'File Storage', cost: 80, description: 'Documents & media' }
+        { name: 'PostgreSQL Database', cost: 50, description: 'Managed DB (small instance)' },
+        { name: 'File Storage', cost: 25, description: 'Documents & media (~100GB)' }
       ],
-      total: 200,
+      total: 75,
       color: '#10b981'
     },
     {
       category: 'Security & Monitoring',
       icon: faShieldAlt,
       items: [
-        { name: 'SSL Certificate', cost: 15, description: 'HTTPS encryption' },
-        { name: 'Security Tools', cost: 100, description: 'Firewall & scanning' },
-        { name: 'Monitoring & Logs', cost: 60, description: 'System monitoring' }
+        { name: 'SSL Certificate', cost: 0, description: 'Free (Let\'s Encrypt)' },
+        { name: 'Security Tools', cost: 30, description: 'Basic firewall & WAF' },
+        { name: 'Monitoring & Logs', cost: 20, description: 'System monitoring (basic tier)' }
       ],
-      total: 175,
+      total: 50,
       color: '#8b5cf6'
     },
     {
       category: 'External Services',
       icon: faSync,
       items: [
-        { name: 'Email Service', cost: 50, description: 'Transactional emails' },
-        { name: 'SMS/Notifications', cost: 80, description: 'Client notifications' }
+        { name: 'Email Service', cost: 15, description: 'Transactional emails (~5K/month)' },
+        { name: 'SMS/Notifications', cost: 30, description: 'Client notifications (moderate use)' }
       ],
-      total: 130,
+      total: 45,
       color: '#f59e0b'
     }
   ];
@@ -64,17 +64,17 @@ const MaintenanceCost = () => {
   // Single engineer maintenance
   const engineerCost = {
     role: 'Platform Engineer',
-    percentage: 30,
-    hours: 48,
-    monthlyCost: 4500,
-    description: '30% time allocation for maintenance, updates, and support',
+    percentage: 5,
+    hours: 8,
+    monthlyCost: 800,
+    description: '5% time allocation - minimal maintenance for stable platform',
     responsibilities: [
-      'System monitoring and maintenance',
-      'Bug fixes and security patches',
-      'Performance optimization',
-      'User support and troubleshooting',
-      'Monthly updates and improvements',
-      'Backup verification'
+      'Weekly system monitoring (30 min)',
+      'Security patches as needed (2h/month)',
+      'Performance checks (1h/month)',
+      'User support & troubleshooting (2-3h/month)',
+      'Monthly updates (1-2h/month)',
+      'Backup verification (30 min/month)'
     ]
   };
 
@@ -83,28 +83,7 @@ const MaintenanceCost = () => {
 
   const costDistribution = [
     { name: 'Infrastructure', value: totalInfrastructureCost, color: '#3b82f6' },
-    { name: 'Engineer (30%)', value: engineerCost.monthlyCost, color: '#10b981' }
-  ];
-
-  const yearlyBreakdown = [
-    { 
-      year: 'Year 1', 
-      infrastructure: totalInfrastructureCost * 12 / 1000, 
-      engineer: engineerCost.monthlyCost * 12 / 1000, 
-      total: totalMonthlyCost * 12 / 1000 
-    },
-    { 
-      year: 'Year 2', 
-      infrastructure: totalInfrastructureCost * 12 / 1000, 
-      engineer: (engineerCost.monthlyCost * 1.05) * 12 / 1000, 
-      total: (totalInfrastructureCost + engineerCost.monthlyCost * 1.05) * 12 / 1000 
-    },
-    { 
-      year: 'Year 3', 
-      infrastructure: totalInfrastructureCost * 12 / 1000, 
-      engineer: (engineerCost.monthlyCost * 1.1) * 12 / 1000, 
-      total: (totalInfrastructureCost + engineerCost.monthlyCost * 1.1) * 12 / 1000 
-    }
+    { name: 'Engineer (8h/month)', value: engineerCost.monthlyCost, color: '#10b981' }
   ];
 
   const maintenanceActivities = [
@@ -234,7 +213,7 @@ const MaintenanceCost = () => {
                   <div className="text-green-400 text-3xl">
                     <FontAwesomeIcon icon={faUsers} />
                   </div>
-                  <span className="text-emerald-50 font-semibold text-lg">Engineer (30%)</span>
+                  <span className="text-emerald-50 font-semibold text-lg">Engineer (8h/month)</span>
                 </div>
                 <span className="text-emerald-300 font-bold text-xl">CHF {engineerCost.monthlyCost}</span>
               </div>
@@ -361,78 +340,6 @@ const MaintenanceCost = () => {
               </div>
             </motion.div>
           ))}
-        </div>
-      </motion.div>
-
-      {/* 3-Year Projection */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 1.6 }}
-        className="bg-gradient-to-br from-emerald-900/40 to-teal-900/40 backdrop-blur-lg rounded-3xl p-8 border border-emerald-700/30 shadow-2xl mb-12"
-      >
-        <h3 className="text-3xl font-bold text-emerald-50 mb-8 text-center">3-Year Cost Projection</h3>
-        
-        <ResponsiveContainer width="100%" height={350}>
-          <BarChart data={yearlyBreakdown}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#059669" opacity={0.1} />
-            <XAxis dataKey="year" tick={{ fill: '#6ee7b7', fontSize: 12 }} />
-            <YAxis tick={{ fill: '#6ee7b7', fontSize: 12 }} label={{ value: 'Cost (CHF K)', angle: -90, position: 'insideLeft', fill: '#6ee7b7' }} />
-            <Tooltip 
-              contentStyle={{ 
-                backgroundColor: '#064e3b', 
-                border: '1px solid #059669',
-                borderRadius: '8px',
-                color: '#d1fae5'
-              }}
-              formatter={(value) => `CHF ${(value * 1000).toLocaleString()}`}
-            />
-            <Bar dataKey="infrastructure" stackId="a" fill="#3b82f6" name="Infrastructure" />
-            <Bar dataKey="engineer" stackId="a" fill="#10b981" name="Engineer" />
-          </BarChart>
-        </ResponsiveContainer>
-        
-        <div className="mt-6 text-center">
-          <div className="text-emerald-100/70 text-sm mb-2">3-Year Total Investment</div>
-          <div className="text-emerald-300 font-bold text-4xl">
-            CHF {Math.round(yearlyBreakdown.reduce((sum, year) => sum + year.total, 0) * 1000).toLocaleString()}
-          </div>
-          <div className="text-emerald-100/60 text-xs mt-2">
-            Average CHF {Math.round((yearlyBreakdown.reduce((sum, year) => sum + year.total, 0) / 3) * 1000).toLocaleString()} per year
-          </div>
-          <div className="text-emerald-100/60 text-xs mt-1">
-            Includes 5% annual salary increase for engineer
-          </div>
-        </div>
-      </motion.div>
-
-      {/* Summary */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 2 }}
-        className="bg-gradient-to-r from-emerald-600/20 to-teal-600/20 backdrop-blur-lg rounded-3xl p-10 border border-emerald-500/30 text-center"
-      >
-        <div className="text-emerald-400 text-5xl mb-6">
-          <FontAwesomeIcon icon={faLightbulb} />
-        </div>
-        <h3 className="text-3xl font-bold text-emerald-50 mb-4">Cost-Effective Maintenance</h3>
-        <p className="text-xl text-emerald-100/80 max-w-3xl mx-auto mb-6">
-          Lean operational costs with a single dedicated engineer maintaining the platform for your 20-person team
-        </p>
-        <div className="grid md:grid-cols-3 gap-6 mt-8">
-          <div>
-            <div className="text-2xl font-bold text-emerald-300 mb-2">~6.5%</div>
-            <div className="text-emerald-100/70 text-sm">Of initial development cost annually</div>
-          </div>
-          <div>
-            <div className="text-2xl font-bold text-emerald-300 mb-2">24/5</div>
-            <div className="text-emerald-100/70 text-sm">Business hours support</div>
-          </div>
-          <div>
-            <div className="text-2xl font-bold text-emerald-300 mb-2">20 users</div>
-            <div className="text-emerald-100/70 text-sm">Supported team size</div>
-          </div>
         </div>
       </motion.div>
     </div>

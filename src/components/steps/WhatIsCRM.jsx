@@ -1,12 +1,13 @@
 import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
-  faUsers, 
-  faChartLine, 
-  faBolt, 
-  faMoneyBillTrendUp, 
-  faBullseye, 
+  faDatabase,
   faHandshake,
+  faChartLine, 
+  faCogs,
+  faChartBar,
+  faMobileAlt,
+  faBullseye,
   faExternalLinkAlt
 } from '@fortawesome/free-solid-svg-icons';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Cell } from 'recharts';
@@ -14,34 +15,34 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsive
 const WhatIsCRM = () => {
   const benefits = [
     {
-      icon: faUsers,
-      title: 'Customer Relationships',
-      description: 'Centralize all customer interactions, history, and data in one place'
-    },
-    {
-      icon: faChartLine,
-      title: 'Data-Driven Insights',
-      description: 'Make informed decisions with real-time analytics and reporting'
-    },
-    {
-      icon: faBolt,
-      title: 'Increased Efficiency',
-      description: 'Automate repetitive tasks and streamline workflows'
-    },
-    {
-      icon: faMoneyBillTrendUp,
-      title: 'Revenue Growth',
-      description: 'Improve sales conversion rates and identify upsell opportunities'
-    },
-    {
-      icon: faBullseye,
-      title: 'Better Targeting',
-      description: 'Segment customers and personalize communications effectively'
+      icon: faDatabase,
+      title: 'Centralized Data',
+      description: 'All customer information in one secure place. Everyone has access to the same up-to-date information, eliminating data silos.'
     },
     {
       icon: faHandshake,
-      title: 'Team Collaboration',
-      description: 'Enable seamless collaboration across departments and locations'
+      title: 'Better Relationships',
+      description: 'Build stronger, more personalized connections. Track preferences, history, and important dates for proactive service.'
+    },
+    {
+      icon: faChartLine,
+      title: 'Increased Sales',
+      description: 'More deals closed, faster sales cycles. See your pipeline, prioritize leads, and never miss a follow-up.'
+    },
+    {
+      icon: faCogs,
+      title: 'Automated Workflows',
+      description: 'Save time with intelligent automation. Automate follow-ups, emails, and document generation to focus on revenue activities.'
+    },
+    {
+      icon: faChartBar,
+      title: 'Smart Analytics',
+      description: 'Data-driven decisions with real-time insights. Dashboards show key metrics like conversion rates and customer trends.'
+    },
+    {
+      icon: faMobileAlt,
+      title: 'Mobile Access',
+      description: 'Work from anywhere, anytime. Access customer information and manage tasks from your phone or tablet.'
     }
   ];
 
