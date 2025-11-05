@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import StepNavigation from './components/StepNavigation';
 import WhatIsCRM from './components/steps/WhatIsCRM';
-import CompanyAnalysis from './components/steps/CompanyAnalysis';
 import CRMRequirements from './components/steps/CRMRequirements';
 import DevelopmentPhases from './components/steps/DevelopmentPhases';
 import TechStack from './components/steps/TechStack';
@@ -13,14 +12,13 @@ import WhyMe from './components/steps/WhyMe';
 
 const steps = [
   { id: 1, title: 'What is CRM?', component: WhatIsCRM },
-  { id: 2, title: 'Company Analysis', component: CompanyAnalysis },
-  { id: 3, title: 'CRM Requirements', component: CRMRequirements },
-  { id: 4, title: 'Development Phases', component: DevelopmentPhases },
-  { id: 5, title: 'Tech Stack', component: TechStack },
-  { id: 6, title: 'Timeline & Budget', component: Timeline },
-  { id: 7, title: 'Maintenance Costs', component: MaintenanceCost },
-  { id: 8, title: "What's Next? (AI)", component: AIEnhancements },
-  { id: 9, title: 'Why Me?', component: WhyMe },
+  { id: 2, title: 'CRM Requirements', component: CRMRequirements },
+  { id: 3, title: 'Development Phases', component: DevelopmentPhases },
+  { id: 4, title: 'Tech Stack', component: TechStack },
+  { id: 5, title: 'Timeline & Budget', component: Timeline },
+  { id: 6, title: 'Maintenance Costs', component: MaintenanceCost },
+  { id: 7, title: "What's Next? (AI)", component: AIEnhancements },
+  { id: 8, title: 'Why Me?', component: WhyMe },
 ];
 
 function App() {
